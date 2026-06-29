@@ -1,8 +1,46 @@
 {
-  "updatedAt": 0,
-  "indices": {},
-  "errors": {
-    "kospi": "GitHub Actions 실행 전",
-    "kosdaq": "GitHub Actions 실행 전"
-  }
+  "updatedAt": 1782717406888,
+  "indices": {
+    "kospi": {
+      "price": 8394.65,
+      "previous": 8411.21,
+      "changePct": -0.2,
+      "updatedAt": 1782717360000,
+      "points": [
+        {
+          "time": 1782630960000,
+          "value": 8411.21
+        },
+        {
+          "time": 1782717360000,
+          "value": 8394.65
+        }
+      ],
+      "mode": "naver",
+      "isLive": false,
+      "source": "Naver Finance",
+      "official": true
+    },
+    "kosdaq": {
+      "price": 920.57,
+      "previous": 851.37,
+      "changePct": 8.13,
+      "updatedAt": 1782717300000,
+      "points": [
+        {
+          "time": 1782630900000,
+          "value": 851.37
+        },
+        {
+          "time": 1782717300000,
+          "value": 920.57
+        }
+      ],
+      "mode": "naver",
+      "isLive": false,
+      "source": "Naver Finance",
+      "official": true
+    }
+  },
+  "errors": {}
 }
