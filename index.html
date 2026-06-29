@@ -1,0 +1,2739 @@
+<!-- Market Pulse KR: paste this whole block into Tistory HTML mode. -->
+<style>
+.market-pulse-kr {
+  color-scheme: light;
+  --bg: #f6f8f6;
+  --panel: #ffffff;
+  --panel-soft: #eef4f2;
+  --border: #d8e0dc;
+  --text: #15201d;
+  --muted: #61706a;
+  --muted-strong: #3f4c47;
+  --green: #0f8f6b;
+  --green-soft: #dff4eb;
+  --red: #c2413b;
+  --red-soft: #f9e3e0;
+  --amber: #a16207;
+  --amber-soft: #f7edd2;
+  --blue: #2563eb;
+  --blue-soft: #e4edff;
+  --violet: #6952b8;
+  --shadow: 0 18px 46px rgba(39, 52, 47, 0.09);
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Noto Sans KR", sans-serif;
+}
+
+.market-pulse-kr,
+.market-pulse-kr * {
+  box-sizing: border-box;
+}
+
+.market-pulse-kr {
+  min-width: 0;
+  background:
+    linear-gradient(180deg, rgba(233, 239, 236, 0.95), rgba(246, 248, 246, 0.98) 38%),
+    var(--bg);
+  color: var(--text);
+}
+
+.market-pulse-kr button,
+.market-pulse-kr select {
+  font: inherit;
+}
+
+.app-shell {
+  width: min(920px, calc(100% - 20px));
+  margin: 0 auto;
+  padding: 18px 0;
+}
+
+.topbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: end;
+  min-height: 150px;
+  padding: 12px 0 24px;
+}
+
+.brand-block {
+  max-width: 780px;
+}
+
+.eyebrow {
+  margin: 0 0 7px;
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.market-pulse-kr h1,
+.market-pulse-kr h2,
+.market-pulse-kr p {
+  margin-top: 0;
+}
+
+.market-pulse-kr h1 {
+  margin-bottom: 12px;
+  font-size: 36px;
+  line-height: 1.02;
+  letter-spacing: 0;
+}
+
+.market-pulse-kr h2 {
+  margin-bottom: 0;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.subtitle {
+  max-width: 680px;
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.control-panel {
+  width: min(100%, 440px);
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: var(--shadow);
+}
+
+.live-state {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 28px;
+  margin-bottom: 13px;
+  color: var(--muted-strong);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.pulse-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--amber);
+  box-shadow: 0 0 0 5px rgba(161, 98, 7, 0.13);
+}
+
+.live-state.live .pulse-dot {
+  background: var(--green);
+  box-shadow: 0 0 0 5px rgba(15, 143, 107, 0.14);
+}
+
+.live-state.error .pulse-dot {
+  background: var(--red);
+  box-shadow: 0 0 0 5px rgba(194, 65, 59, 0.13);
+}
+
+.control-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tool-button,
+.select-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 38px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--text);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.tool-button {
+  padding: 0 13px;
+  cursor: pointer;
+}
+
+.tool-button svg {
+  width: 17px;
+  height: 17px;
+}
+
+.tool-button.secondary {
+  background: #ffffff;
+  color: var(--text);
+}
+
+.tool-button:disabled {
+  cursor: wait;
+  opacity: 0.62;
+}
+
+.select-wrap {
+  padding: 0 10px;
+  background: #ffffff;
+  color: var(--muted-strong);
+}
+
+.select-wrap select {
+  min-width: 76px;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font-weight: 800;
+  outline: 0;
+}
+
+.timestamp-line {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.asset-grid {
+  display: contents;
+}
+
+.asset-card,
+.signal-card,
+.source-band {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 10px 28px rgba(43, 55, 50, 0.06);
+}
+
+.asset-card {
+  min-height: 220px;
+  padding: 14px;
+  overflow: hidden;
+}
+
+.asset-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 44px;
+}
+
+.asset-name {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.asset-name strong {
+  font-size: 18px;
+  letter-spacing: 0;
+}
+
+.asset-name span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.status-pill,
+.data-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 26px;
+  padding: 0 8px;
+  border-radius: 999px;
+  background: var(--panel-soft);
+  color: var(--muted-strong);
+  font-size: 11px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.status-pill.live,
+.data-chip.live {
+  background: var(--green-soft);
+  color: var(--green);
+}
+
+.status-pill.warn,
+.data-chip.warn {
+  background: var(--amber-soft);
+  color: var(--amber);
+}
+
+.status-pill.error,
+.data-chip.error {
+  background: var(--red-soft);
+  color: var(--red);
+}
+
+.price-block {
+  margin-top: 20px;
+}
+
+.price-main {
+  display: block;
+  min-height: 54px;
+  font-size: 25px;
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.price-sub {
+  display: block;
+  min-height: 23px;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.change-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  min-height: 30px;
+  margin-top: 13px;
+}
+
+.change-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 0 9px;
+  border-radius: 6px;
+  background: var(--panel-soft);
+  color: var(--muted-strong);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.change-badge.positive {
+  background: var(--green-soft);
+  color: var(--green);
+}
+
+.change-badge.negative {
+  background: var(--red-soft);
+  color: var(--red);
+}
+
+.source-label {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.sparkline {
+  width: 100%;
+  height: 44px;
+  margin-top: 16px;
+}
+
+.sparkline.large {
+  height: 58px;
+  margin-top: 16px;
+}
+
+.sparkline svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.sparkline path.area {
+  opacity: 0.14;
+}
+
+.signal-card {
+  min-height: 220px;
+  padding: 14px;
+}
+
+.etf-card {
+  grid-column: span 2;
+}
+
+.section-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 52px;
+}
+
+.gauge-wrap {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.gauge {
+  width: 96px;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at center, #ffffff 0 56%, transparent 57%),
+    conic-gradient(var(--red) 0deg 90deg, var(--amber) 90deg 198deg, var(--green) 198deg 360deg);
+  position: relative;
+}
+
+.gauge::after {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border-radius: 50%;
+  background:
+    conic-gradient(var(--blue) 0deg var(--gauge-value), rgba(21, 32, 29, 0.08) var(--gauge-value) 360deg);
+  -webkit-mask: radial-gradient(circle at center, transparent 0 58%, #000 59%);
+  mask: radial-gradient(circle at center, transparent 0 58%, #000 59%);
+}
+
+.gauge div {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+}
+
+.gauge strong {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.gauge span {
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.signal-copy p {
+  min-height: 24px;
+  margin-bottom: 18px;
+  color: var(--muted-strong);
+  font-weight: 800;
+}
+
+.range-labels,
+.rsi-zones {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.metric-stack {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.metric-label,
+.metric-meta {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.metric-value {
+  display: block;
+  min-height: 38px;
+  margin: 8px 0 7px;
+  font-size: 26px;
+  line-height: 1.1;
+  font-weight: 950;
+  letter-spacing: 0;
+}
+
+.metric-value.compact {
+  font-size: 22px;
+}
+
+.rsi-meter {
+  display: flex;
+  align-items: baseline;
+  gap: 13px;
+  min-height: 58px;
+  margin-top: 16px;
+}
+
+.rsi-meter strong {
+  font-size: 48px;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.rsi-meter span {
+  color: var(--muted-strong);
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.rsi-zones {
+  padding: 0 4px;
+}
+
+.signal-note {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.source-band {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.85fr) minmax(0, 2fr);
+  gap: 22px;
+  margin-top: 12px;
+  padding: 18px;
+}
+
+.source-heading p:last-child {
+  margin: 9px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.source-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 9px;
+}
+
+.source-item {
+  min-height: 74px;
+  padding: 11px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fbfcfb;
+}
+
+.source-item strong {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 13px;
+}
+
+.source-item span {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.source-item.ok {
+  border-color: rgba(15, 143, 107, 0.28);
+  background: rgba(223, 244, 235, 0.55);
+}
+
+.source-item.warn {
+  border-color: rgba(161, 98, 7, 0.24);
+  background: rgba(247, 237, 210, 0.62);
+}
+
+.source-item.error {
+  border-color: rgba(194, 65, 59, 0.24);
+  background: rgba(249, 227, 224, 0.62);
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 2px 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+@media (max-width: 1180px) {
+  .source-band {
+    grid-template-columns: 1fr;
+  }
+
+  .source-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 820px) {
+  .app-shell {
+    width: min(100% - 18px, 760px);
+    padding-top: 16px;
+  }
+
+  .topbar {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    gap: 18px;
+  }
+
+  .market-pulse-kr h1 {
+    font-size: 34px;
+  }
+
+  .control-panel {
+    width: 100%;
+  }
+
+  .gauge-wrap,
+  .metric-stack {
+    grid-template-columns: 1fr;
+  }
+
+  .gauge {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 560px) {
+  .dashboard-grid,
+  .source-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .etf-card {
+    grid-column: auto;
+  }
+
+  .asset-card,
+  .signal-card,
+  .source-band {
+    padding: 15px;
+  }
+
+  .price-main {
+    font-size: 24px;
+  }
+
+  .control-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .select-wrap {
+    grid-column: 1 / -1;
+    justify-content: space-between;
+  }
+
+  .rsi-meter strong {
+    font-size: 54px;
+  }
+}
+
+</style>
+<div class="market-pulse-kr">
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand-block">
+          <p class="eyebrow">Free live market monitor</p>
+          <h1>Market Pulse KR</h1>
+          <p class="subtitle">크립토, 환율, 한국 지수, 심리와 ETF 흐름을 한 화면에서 추적합니다.</p>
+        </div>
+
+        <div class="control-panel" aria-label="대시보드 제어">
+          <div class="live-state" id="globalStatus">
+            <span class="pulse-dot" aria-hidden="true"></span>
+            <span id="globalStatusText">연결 준비</span>
+          </div>
+          <div class="control-row">
+            <button class="tool-button" id="refreshButton" type="button" title="전체 새로고침">
+              <i data-lucide="refresh-cw" aria-hidden="true"></i>
+              <span>새로고침</span>
+            </button>
+            <button class="tool-button secondary" id="pauseButton" type="button" title="자동 갱신 일시정지">
+              <i data-lucide="pause" aria-hidden="true"></i>
+              <span>일시정지</span>
+            </button>
+            <label class="select-wrap" title="자동 갱신 간격">
+              <span>자동</span>
+              <select id="refreshInterval" aria-label="자동 갱신 간격">
+                <option value="3000" selected>3초</option>
+                <option value="5000">5초</option>
+                <option value="10000">10초</option>
+                <option value="30000">30초</option>
+              </select>
+            </label>
+          </div>
+          <div class="timestamp-line">
+            <span id="seoulClock">KST --:--:--</span>
+            <span id="nextRefresh">다음 갱신 대기</span>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="dashboard-grid" aria-label="주요 모니터링 항목">
+          <div class="asset-grid" id="assetGrid" aria-label="주요 가격 항목"></div>
+          <article class="signal-card fear-card">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">Sentiment</p>
+                <h2>공포 탐욕지수</h2>
+              </div>
+              <span class="data-chip" id="fngFreshness">대기</span>
+            </div>
+            <div class="gauge-wrap">
+              <div class="gauge" id="fngGauge" style="--gauge-value: 0deg">
+                <div>
+                  <strong id="fngValue">--</strong>
+                  <span id="fngClass">--</span>
+                </div>
+              </div>
+              <div class="signal-copy">
+                <p id="fngDate">최근 값 없음</p>
+                <div class="range-labels">
+                  <span>극단적 공포</span>
+                  <span>중립</span>
+                  <span>극단적 탐욕</span>
+                </div>
+              </div>
+            </div>
+            <div class="sparkline large" id="fngSparkline"></div>
+          </article>
+
+          <article class="signal-card etf-card">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">US Spot BTC ETF</p>
+                <h2>현물 ETF 유출입</h2>
+              </div>
+              <span class="data-chip" id="etfFreshness">대기</span>
+            </div>
+            <div class="metric-stack">
+              <div>
+                <span class="metric-label">최근 순유입</span>
+                <strong class="metric-value" id="etfValue">--</strong>
+                <span class="metric-meta" id="etfDate">최근 값 없음</span>
+              </div>
+              <div>
+                <span class="metric-label">누적 순유입</span>
+                <strong class="metric-value compact" id="etfCumulative">--</strong>
+                <span class="metric-meta" id="etfWeekly">5거래일 합계 --</span>
+              </div>
+            </div>
+            <div class="sparkline large" id="etfSparkline"></div>
+          </article>
+
+          <article class="signal-card rsi-card">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">Technical</p>
+                <h2>BTC RSI 14D</h2>
+              </div>
+              <span class="data-chip" id="rsiFreshness">대기</span>
+            </div>
+            <div class="rsi-meter">
+              <strong id="rsiValue">--</strong>
+              <span id="rsiClass">--</span>
+            </div>
+            <div class="rsi-zones" aria-hidden="true">
+              <span>30</span>
+              <span>50</span>
+              <span>70</span>
+            </div>
+            <div class="sparkline large" id="rsiSparkline"></div>
+            <p class="signal-note" id="rsiNote">CoinGecko daily close 기준</p>
+          </article>
+        </section>
+
+        <section class="source-band" aria-label="데이터 상태">
+          <div class="source-heading">
+            <p class="eyebrow">Sources</p>
+            <h2>무료 공개 데이터 상태</h2>
+            <p>실시간 가격은 틱 데이터, 지수와 ETF/F&G는 각 제공처의 갱신 주기를 따릅니다.</p>
+          </div>
+          <div class="source-grid" id="sourceGrid"></div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <span>Data: Coinbase Exchange, CoinGecko, Bithumb, Upbit, Yahoo Finance FX, ExchangeRate-API fallback, Naver Finance, Daum Finance, Alternative.me, Farside Investors. USDT/USDC는 빗썸 KRW 체결가를 1순위, 업비트 KRW 체결가를 2순위로 표시하며 둘 다 실패하면 실패로 표시합니다. KOSPI/KOSDAQ은 Naver 1순위, Daum 2순위로만 표시하며 둘 다 실패하면 실패로 표시합니다.</span>
+        <span>정보 제공용이며 투자 조언이 아닙니다.</span>
+      </footer>
+    </div>
+    </div>
+<script>
+(() => {
+"use strict";
+
+const currentScript = document.currentScript;
+const APP_ROOT = currentScript?.previousElementSibling?.classList?.contains("market-pulse-kr")
+  ? currentScript.previousElementSibling
+  : document.querySelector(".market-pulse-kr");
+if (!APP_ROOT) {
+  console.error("Market Pulse KR: root element not found");
+  return;
+}
+const $ = (selector, base = APP_ROOT) => base.querySelector(selector);
+const lastOf = (items) => items[items.length - 1];
+const previousOf = (items) => items[items.length - 2];
+
+
+const ASSETS = [
+  { id: "bitcoin", symbol: "BTC", name: "Bitcoin", product: "BTC-USD", upbit: "KRW-BTC", decimals: 0 },
+  { id: "ethereum", symbol: "ETH", name: "Ethereum", product: "ETH-USD", upbit: "KRW-ETH", decimals: 0 },
+  { id: "solana", symbol: "SOL", name: "Solana", product: "SOL-USD", upbit: "KRW-SOL", decimals: 2 },
+  { id: "tether", symbol: "USDT", name: "Tether", product: null, upbit: "KRW-USDT", bithumb: "USDT_KRW", decimals: 2, stable: true },
+  { id: "usd-coin", symbol: "USDC", name: "USD Coin", product: null, upbit: "KRW-USDC", bithumb: "USDC_KRW", decimals: 2, stable: true },
+];
+
+const STABLE_USD_SANITY_MIN = 0.98;
+const STABLE_USD_SANITY_MAX = 1.02;
+const STABLE_UPBIT_MAX_SPREAD_PCT = 0.65;
+const STABLE_UPBIT_MAX_FX_DEVIATION_PCT = 3;
+const STABLE_EXCHANGE_MAX_AGE = 60000;
+const NAVER_INDEX_BASE = "https://m.stock.naver.com/api/index";
+const DAUM_QUOTE_BASE = "https://finance.daum.net/api/quotes";
+const GITHUB_INDEX_CACHE_URL = "./data/korean-index.json";
+const KOREAN_INDEX_CACHE_MAX_AGE = 30 * 60000;
+const KOREAN_INDEX_CONFIGS = [
+  {
+    cardId: "kospi",
+    naverCode: "KOSPI",
+    daumCode: "KOSPI",
+  },
+  {
+    cardId: "kosdaq",
+    naverCode: "KOSDAQ",
+    daumCode: "KOSDAQ",
+  },
+];
+
+const EXTRA_CARDS = [
+  { id: "usdkrw", symbol: "USD/KRW", name: "원달러 환율" },
+  { id: "kospi", symbol: "KOSPI", name: "코스피" },
+  { id: "kosdaq", symbol: "KOSDAQ", name: "코스닥" },
+];
+
+const SOURCES = [
+  { id: "coinbase", label: "Coinbase WS", detail: "BTC/ETH/SOL 보조 실시간 틱" },
+  { id: "coingecko", label: "CoinGecko", detail: "글로벌 USD 스냅샷, 시총" },
+  { id: "rsi", label: "CoinGecko RSI", detail: "BTC daily close 계산" },
+  { id: "bithumb", label: "Bithumb", detail: "USDT/USDC 원화 체결가 1순위" },
+  { id: "upbit", label: "Upbit", detail: "국내 원화 가격, 스테이블 2순위" },
+  { id: "fx", label: "USD/KRW FX", detail: "원달러 환율 카드 기준" },
+  { id: "yahoo", label: "Korean Index", detail: "GitHub 캐시: Naver 1순위, Daum 2순위" },
+  { id: "alternative", label: "Alternative.me", detail: "Fear & Greed" },
+  { id: "farside", label: "Farside", detail: "BTC 현물 ETF flow" },
+];
+
+const SOURCE_TTL = {
+  coingecko: 30000,
+  bithumb: 3000,
+  upbit: 3000,
+  fx: 3000,
+  yahoo: 60000,
+  alternative: 60 * 60000,
+  farside: 15 * 60000,
+  rsi: 5 * 60000,
+};
+
+const COINBASE_WS = "wss://ws-feed.exchange.coinbase.com";
+const FARSIDE_URL = "https://farside.co.uk/bitcoin-etf-flow-all-data/";
+const ER_API_URL = "https://open.er-api.com/v6/latest/USD";
+const YAHOO_FX_SYMBOLS = ["KRW=X", "USDKRW=X"];
+const ASSET_BY_ID = new Map(ASSETS.map((asset) => [asset.id, asset]));
+const COINBASE_PRODUCTS = ASSETS.map((asset) => asset.product).filter(Boolean);
+const ASSET_BY_PRODUCT = new Map(ASSETS.filter((asset) => asset.product).map((asset) => [asset.product, asset]));
+
+const state = {
+  paused: false,
+  refreshing: false,
+  refreshInterval: 3000,
+  nextRefreshAt: 0,
+  timer: null,
+  countdownTimer: null,
+  ws: null,
+  wsReconnectTimer: null,
+  usdKrw: null,
+  usdKrwChangePct: null,
+  usdKrwUpdatedAt: null,
+  fxDailyCache: null,
+  cache: null,
+  lastRun: {},
+  sources: new Map(),
+  cards: new Map(),
+};
+
+function init() {
+  if (!("fetch" in window)) {
+    setGlobalStatus("error", "이 브라우저는 fetch API를 지원하지 않습니다");
+    return;
+  }
+  initSources();
+  renderCards();
+  bindControls();
+  loadMarketCache();
+  refreshAll({ force: true });
+  connectCoinbase();
+  startTimers();
+  updateClock();
+  window.lucide?.createIcons();
+}
+
+function initSources() {
+  SOURCES.forEach((source) => {
+    state.sources.set(source.id, {
+      ...source,
+      status: "warn",
+      message: "대기",
+      updatedAt: null,
+    });
+  });
+  renderSources();
+}
+
+function renderCards() {
+  const grid = $("#assetGrid");
+  grid.innerHTML = "";
+
+  [...ASSETS, ...EXTRA_CARDS].forEach((item) => {
+    const card = document.createElement("article");
+    card.className = "asset-card";
+    card.dataset.card = item.id;
+    card.innerHTML = `
+      <div class="asset-top">
+        <div class="asset-name">
+          <strong>${item.symbol}</strong>
+          <span>${item.name}</span>
+        </div>
+        <span class="status-pill warn" data-role="status">대기</span>
+      </div>
+      <div class="price-block">
+        <span class="price-main" data-role="value">--</span>
+        <span class="price-sub" data-role="subvalue">데이터 수신 대기</span>
+      </div>
+      <div class="change-line">
+        <span class="change-badge" data-role="change">--</span>
+        <span class="source-label" data-role="source">--</span>
+      </div>
+      <div class="sparkline" data-role="sparkline"></div>
+    `;
+    grid.appendChild(card);
+    state.cards.set(item.id, {
+      root: card,
+      status: card.querySelector('[data-role="status"]'),
+      value: card.querySelector('[data-role="value"]'),
+      subvalue: card.querySelector('[data-role="subvalue"]'),
+      change: card.querySelector('[data-role="change"]'),
+      source: card.querySelector('[data-role="source"]'),
+      sparkline: card.querySelector('[data-role="sparkline"]'),
+      history: [],
+    });
+  });
+}
+
+function bindControls() {
+  $("#refreshButton").addEventListener("click", () => refreshAll({ force: true }));
+  $("#pauseButton").addEventListener("click", togglePause);
+  $("#refreshInterval").addEventListener("change", (event) => {
+    state.refreshInterval = Math.max(3000, Number(event.target.value) || 3000);
+    scheduleNextRefresh();
+  });
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden && !state.paused) {
+      refreshAll();
+      connectCoinbase();
+    }
+  });
+}
+
+function startTimers() {
+  state.countdownTimer = window.setInterval(() => {
+    updateClock();
+    updateCountdown();
+  }, 1000);
+  scheduleNextRefresh();
+}
+
+function scheduleNextRefresh() {
+  window.clearTimeout(state.timer);
+  if (state.paused) {
+    state.nextRefreshAt = 0;
+    updateCountdown();
+    return;
+  }
+  state.nextRefreshAt = Date.now() + state.refreshInterval;
+  state.timer = window.setTimeout(() => {
+    refreshAll();
+    scheduleNextRefresh();
+  }, state.refreshInterval);
+  updateCountdown();
+}
+
+function togglePause() {
+  state.paused = !state.paused;
+  const button = $("#pauseButton");
+  button.innerHTML = state.paused
+    ? '<i data-lucide="play" aria-hidden="true"></i><span>재개</span>'
+    : '<i data-lucide="pause" aria-hidden="true"></i><span>일시정지</span>';
+  window.lucide?.createIcons();
+
+  if (state.paused) {
+    closeCoinbase();
+    setGlobalStatus("warn", "자동 갱신 일시정지");
+  } else {
+    connectCoinbase();
+    refreshAll({ force: true });
+  }
+  scheduleNextRefresh();
+}
+
+async function refreshAll({ force = false } = {}) {
+  if (state.refreshing || state.paused) return;
+  state.refreshing = true;
+  setGlobalStatus("warn", "데이터 갱신 중");
+  $("#refreshButton").disabled = true;
+
+  const jobs = [
+    runDue("coingecko", force, fetchCoinGeckoSnapshot),
+    runDue("bithumb", force, fetchBithumbSnapshot),
+    runDue("upbit", force, fetchUpbitSnapshot),
+    runDue("fx", force, fetchUsdKrw),
+    runDue("yahoo", force, fetchKoreanIndices),
+    runDue("alternative", force, fetchFearGreed),
+    runDue("farside", force, fetchEtfFlow),
+    runDue("rsi", force, fetchBtcRsi),
+  ].filter(Boolean);
+
+  await Promise.allSettled(jobs);
+  $("#refreshButton").disabled = false;
+  state.refreshing = false;
+  summarizeGlobalStatus();
+}
+
+function runDue(sourceId, force, task) {
+  const ttl = SOURCE_TTL[sourceId] ?? 30000;
+  const due = force || !state.lastRun[sourceId] || Date.now() - state.lastRun[sourceId] >= ttl;
+  if (!due) return null;
+
+  setSource(sourceId, "warn", "갱신 중");
+  markTaskPending(sourceId);
+  return task()
+    .then(() => {
+      state.lastRun[sourceId] = Date.now();
+    })
+    .catch((error) => {
+      setSource(sourceId, "error", shortError(error));
+      markTaskError(sourceId);
+    });
+}
+
+async function fetchCoinGeckoSnapshot() {
+  const ids = ASSETS.map((asset) => asset.id).join(",");
+  const url =
+    "https://api.coingecko.com/api/v3/simple/price" +
+    `?ids=${encodeURIComponent(ids)}` +
+    "&vs_currencies=usd,krw" +
+    "&include_24hr_change=true" +
+    "&include_market_cap=true" +
+    "&include_last_updated_at=true";
+  const data = await fetchJsonWithProxyFallback(url, 12000);
+  let renderedCount = 0;
+
+  ASSETS.forEach((asset) => {
+    const payload = data[asset.id];
+    if (!payload) return;
+    const card = state.cards.get(asset.id);
+    const usd = toNumber(payload.usd);
+    const krw = toNumber(payload.krw);
+    const krwChange = toNumber(payload.krw_24h_change);
+    const usdChange = toNumber(payload.usd_24h_change);
+    const updatedAt = payload.last_updated_at ? payload.last_updated_at * 1000 : Date.now();
+
+    asset.usd = usd;
+    asset.usdChange = usdChange;
+    asset.marketCap = toNumber(payload.usd_market_cap);
+    asset.updatedAt = updatedAt;
+
+    if (asset.stable) {
+      if (!applyStablecoinPreferredValue(asset, state.usdKrwUpdatedAt || updatedAt || Date.now())) {
+        renderStablecoinWaiting(card, asset);
+      }
+      renderedCount += 1;
+      return;
+    }
+
+    const hasFreshKrw = hasFreshKrwQuote(asset);
+    if (!hasFreshKrw) {
+      setKrwQuote(asset, {
+        krw,
+        change: krwChange,
+        source: "CoinGecko",
+        updatedAt,
+      });
+      asset.source = "CoinGecko";
+    }
+    appendHistory(card, asset.krw || krw);
+    renderAsset(asset, hasFreshKrw ? asset.krwSource : "CoinGecko");
+    renderedCount += 1;
+  });
+
+  if (!renderedCount) throw new Error("CoinGecko 가격 없음");
+  setSource("coingecko", "ok", "스냅샷 수신");
+}
+
+
+async function fetchBithumbSnapshot() {
+  const stableAssets = ASSETS.filter((asset) => asset.stable && asset.bithumb);
+  if (!stableAssets.length) throw new Error("Bithumb 스테이블 설정 없음");
+
+  const results = await Promise.allSettled(
+    stableAssets.map(async (asset) => {
+      const url = `https://api.bithumb.com/public/ticker/${encodeURIComponent(asset.bithumb)}`;
+      const data = await fetchJsonWithProxyFallback(url, 10000);
+      if (data?.status && data.status !== "0000") {
+        throw new Error(`${asset.symbol} Bithumb 상태 ${data.status}`);
+      }
+
+      const payload = data?.data ?? data;
+      const krw = pickNumber(payload, ["closing_price", "trade_price", "closePrice", "price"]);
+      const change = pickNumber(payload, ["fluctate_rate_24H", "change_rate", "signed_change_rate"]);
+      if (!Number.isFinite(krw)) throw new Error(`${asset.symbol} Bithumb 가격 없음`);
+
+      setStableBithumbQuote(asset, {
+        krw,
+        // Bithumb fluctate_rate_24H는 이미 퍼센트 숫자 형식이다. 예: 0.12 = 0.12%
+        change: Number.isFinite(change) ? change : null,
+        updatedAt: Date.now(),
+      });
+      applyStablecoinPreferredValue(asset, Date.now());
+      return asset.symbol;
+    }),
+  );
+
+  const successCount = results.filter((result) => result.status === "fulfilled").length;
+  if (!successCount) throw new Error("Bithumb 스테이블 가격 없음");
+  if (successCount < stableAssets.length) {
+    setSource("bithumb", "warn", `스테이블 ${successCount}/${stableAssets.length}개 수신`);
+  } else {
+    setSource("bithumb", "ok", "스테이블 원화 체결가 수신");
+  }
+}
+
+async function fetchUpbitSnapshot() {
+  const upbitAssets = ASSETS.filter((asset) => asset.upbit);
+  const markets = upbitAssets.map((asset) => asset.upbit);
+  let rows;
+  try {
+    rows = await fetchJsonWithProxyFallback(`https://api.upbit.com/v1/ticker?markets=${markets.join(",")}`, 10000);
+  } catch {
+    const settled = await Promise.allSettled(
+      markets.map((market) => fetchJsonWithProxyFallback(`https://api.upbit.com/v1/ticker?markets=${market}`, 8000)),
+    );
+    rows = settled
+      .filter((result) => result.status === "fulfilled")
+      .flatMap((result) => (Array.isArray(result.value) ? result.value : [result.value]));
+  }
+
+  if (!Array.isArray(rows) || !rows.length) throw new Error("Upbit 가격 없음");
+  let renderedCount = 0;
+  let stableQuoteCount = 0;
+
+  rows.forEach((row) => {
+    const asset = upbitAssets.find((candidate) => candidate.upbit === row.market);
+    if (!asset) return;
+    const krw = toNumber(row.trade_price);
+    const changeRate = toNumber(row.signed_change_rate);
+    const krwChange = Number.isFinite(changeRate) ? changeRate * 100 : null;
+    const updatedAt = upbitTimestamp(row) || Date.now();
+
+    if (asset.stable) {
+      setStableUpbitQuote(asset, { krw, change: krwChange, updatedAt });
+      stableQuoteCount += Number.isFinite(krw) ? 1 : 0;
+      return;
+    }
+
+    setKrwQuote(asset, {
+      krw,
+      change: krwChange,
+      source: "Upbit",
+      updatedAt,
+    });
+    asset.updatedAt = updatedAt;
+    appendHistory(state.cards.get(asset.id), krw);
+    renderAsset(asset, "Upbit");
+    renderedCount += 1;
+  });
+
+  let stableRendered = 0;
+  ASSETS.filter((asset) => asset.stable).forEach((asset) => {
+    if (applyStablecoinPreferredValue(asset, Date.now())) stableRendered += 1;
+  });
+
+  if (!renderedCount && !stableQuoteCount) throw new Error("Upbit 매칭 가격 없음");
+  const stableText = stableRendered ? ", 스테이블 수신" : stableQuoteCount ? ", 스테이블 대기" : "";
+  setSource("upbit", "ok", `원화 가격 수신${stableText}`);
+}
+
+async function fetchUsdKrw() {
+  let yahooError = null;
+  try {
+    const payload = await fetchYahooFxRate();
+    renderUsdKrw(payload);
+    setSource("fx", payload.isLive ? "ok" : "warn", payload.isLive ? "USD/KRW 1분봉 수신" : "USD/KRW 최근값 수신");
+    return;
+  } catch (error) {
+    yahooError = error;
+  }
+
+  try {
+    const payload = await fetchExchangeRateApiUsdKrw();
+    renderUsdKrw(payload);
+    setSource("fx", "warn", payload.fromCache ? "ER-API 캐시 백업" : "ER-API 일간 백업");
+  } catch (fallbackError) {
+    throw fallbackError || yahooError;
+  }
+}
+
+async function fetchYahooFxRate() {
+  let lastError;
+  const attempts = [
+    { range: "1d", interval: "1m", label: "1분봉", staleAfter: 8 * 60000 },
+    { range: "5d", interval: "5m", label: "5분봉", staleAfter: 20 * 60000 },
+    { range: "1mo", interval: "1d", label: "최근 종가", staleAfter: 36 * 60 * 60000 },
+  ];
+
+  for (const symbol of YAHOO_FX_SYMBOLS) {
+    for (const attempt of attempts) {
+      const urls = ["query1.finance.yahoo.com", "query2.finance.yahoo.com"].map(
+        (host) =>
+          `https://${host}/v8/finance/chart/${encodeURIComponent(symbol)}` +
+          `?range=${attempt.range}&interval=${attempt.interval}&includePrePost=true`,
+      );
+      for (const url of urls) {
+        try {
+          const data = await fetchJsonMaybeProxied(url, 12000, { directTimeout: 3000, race: true });
+          const parsed = parseYahooFxChart(data, attempt);
+          if (parsed) return parsed;
+        } catch (error) {
+          lastError = error;
+        }
+      }
+    }
+  }
+  throw lastError || new Error("Yahoo FX 수신 실패");
+}
+
+function parseYahooFxChart(data, attempt) {
+  const result = data.chart?.result?.[0];
+  if (!result) return null;
+
+  const meta = result.meta ?? {};
+  const timestamps = result.timestamp ?? [];
+  const closes = result.indicators?.quote?.[0]?.close ?? [];
+  const points = timestamps
+    .map((time, index) => ({ time: time * 1000, value: toNumber(closes[index]) }))
+    .filter((point) => Number.isFinite(point.value));
+  const latestPoint = lastOf(points);
+  if (!latestPoint) return null;
+
+  const value = Number.isFinite(latestPoint.value) ? latestPoint.value : toNumber(meta.regularMarketPrice);
+  if (!Number.isFinite(value)) return null;
+  const previous = toNumber(meta.chartPreviousClose) || toNumber(meta.previousClose) || previousOf(points)?.value;
+  const changePct = previous ? ((value - previous) / previous) * 100 : null;
+  const updatedAt = latestPoint.time || (meta.regularMarketTime ? meta.regularMarketTime * 1000 : null);
+  const isLive = Boolean(updatedAt && Date.now() - updatedAt < attempt.staleAfter);
+
+  return {
+    value,
+    changePct,
+    updatedAt,
+    history: points.map((point) => point.value),
+    source: "Yahoo Finance FX",
+    modeLabel: attempt.label,
+    isLive,
+    statusText: isLive ? "Live" : "최근값",
+    statusTone: isLive ? "live" : "warn",
+  };
+}
+
+async function fetchExchangeRateApiUsdKrw() {
+  const cached = state.fxDailyCache;
+  if (cached && Date.now() - cached.fetchedAt < 60 * 60000) {
+    return { ...cached.payload, fromCache: true };
+  }
+
+  const data = await fetchJsonWithProxyFallback(ER_API_URL, 10000);
+  const value = toNumber(data.rates?.KRW);
+  if (!Number.isFinite(value)) throw new Error("KRW 환율 없음");
+
+  const updatedAt = data.time_last_update_unix ? data.time_last_update_unix * 1000 : Date.now();
+  const nextUpdateAt = data.time_next_update_unix ? data.time_next_update_unix * 1000 : null;
+  const payload = {
+    value,
+    changeText: "일 1회",
+    changeType: "neutral",
+    updatedAt,
+    historyValue: value,
+    source: "ExchangeRate-API 백업",
+    modeLabel: nextUpdateAt ? `일간 백업 · 다음 ${formatTime(nextUpdateAt)}` : "일간 백업",
+    isLive: false,
+    statusText: "백업",
+    statusTone: "warn",
+    fromCache: false,
+  };
+  state.fxDailyCache = { fetchedAt: Date.now(), payload };
+  return payload;
+}
+
+function renderUsdKrw(payload) {
+  applyUsdKrwRate(payload.value, payload.updatedAt, payload.changePct);
+  renderSimpleCard("usdkrw", {
+    value: formatKrwRate(payload.value),
+    subvalue: payload.updatedAt ? `${payload.modeLabel} · 기준 ${formatDateTime(payload.updatedAt)}` : `${payload.modeLabel} 기준`,
+    change: payload.changeText || formatPercent(payload.changePct),
+    changeType: payload.changeType || signType(payload.changePct),
+    source: payload.source,
+    updatedAt: payload.updatedAt,
+    history: payload.history,
+    historyValue: payload.historyValue,
+    statusText: payload.statusText,
+    statusTone: payload.statusTone,
+  });
+}
+
+function applyUsdKrwRate(value, updatedAt, changePct = null) {
+  if (!Number.isFinite(value)) return;
+  state.usdKrw = value;
+  state.usdKrwChangePct = Number.isFinite(changePct) ? changePct : state.usdKrwChangePct;
+  state.usdKrwUpdatedAt = updatedAt || Date.now();
+
+  ASSETS.forEach((asset) => {
+    if (asset.stable) {
+      applyStablecoinPreferredValue(asset, state.usdKrwUpdatedAt);
+      return;
+    }
+    if (asset.usd && !hasFreshKrwQuote(asset)) {
+      setKrwQuote(asset, {
+        krw: asset.usd * value,
+        change: asset.usdChange,
+        source: "환율 환산",
+        updatedAt: asset.updatedAt || state.usdKrwUpdatedAt,
+      });
+      renderAsset(asset, asset.source || "CoinGecko");
+    }
+  });
+}
+
+function applyStablecoinPreferredValue(asset, updatedAt) {
+  if (!asset?.stable) return false;
+
+  // 스테이블코인은 글로벌 환산가를 쓰지 않는다.
+  // 1순위: 빗썸 KRW 체결가, 2순위: 업비트 KRW 체결가, 둘 다 없으면 실패 표시.
+  if (hasFreshStableBithumbQuote(asset)) {
+    return applyStablecoinExchangeValue(asset, {
+      krw: asset.bithumbStableKrw,
+      change: asset.bithumbStableChange,
+      source: "Bithumb",
+      note: "Bithumb KRW 체결가",
+      updatedAt: asset.bithumbStableUpdatedAt,
+    });
+  }
+
+  if (hasFreshStableUpbitQuote(asset)) {
+    return applyStablecoinExchangeValue(asset, {
+      krw: asset.upbitStableKrw,
+      change: asset.upbitStableChange,
+      source: "Upbit",
+      note: "Upbit KRW 체결가",
+      updatedAt: asset.upbitStableUpdatedAt,
+    });
+  }
+
+  renderStablecoinFailed(state.cards.get(asset.id), asset);
+  return false;
+}
+
+function applyStablecoinExchangeValue(asset, { krw, change, source, note, updatedAt }) {
+  if (!asset?.stable || !Number.isFinite(krw)) return false;
+  setKrwQuote(asset, {
+    krw,
+    change,
+    source,
+    updatedAt: updatedAt || Date.now(),
+  });
+  asset.stableDisplayNote = note;
+  appendHistory(state.cards.get(asset.id), asset.krw);
+  renderAsset(asset, source);
+  return true;
+}
+
+function setStableBithumbQuote(asset, { krw, change, updatedAt }) {
+  if (!asset?.stable) return;
+  if (Number.isFinite(krw)) asset.bithumbStableKrw = krw;
+  if (Number.isFinite(change)) asset.bithumbStableChange = change;
+  if (updatedAt) asset.bithumbStableUpdatedAt = updatedAt;
+}
+
+function setStableUpbitQuote(asset, { krw, change, updatedAt }) {
+  if (!asset?.stable) return;
+  if (Number.isFinite(krw)) asset.upbitStableKrw = krw;
+  if (Number.isFinite(change)) asset.upbitStableChange = change;
+  if (updatedAt) asset.upbitStableUpdatedAt = updatedAt;
+}
+
+function hasFreshStableBithumbQuote(asset, maxAge = STABLE_EXCHANGE_MAX_AGE) {
+  return Number.isFinite(asset?.bithumbStableKrw) && Date.now() - (asset.bithumbStableUpdatedAt || 0) <= maxAge;
+}
+
+function hasFreshStableUpbitQuote(asset, maxAge = STABLE_EXCHANGE_MAX_AGE) {
+  return Number.isFinite(asset?.upbitStableKrw) && Date.now() - (asset.upbitStableUpdatedAt || 0) <= maxAge;
+}
+
+function getValidatedUpbitStableQuotes(maxAge = STABLE_EXCHANGE_MAX_AGE) {
+  const stableAssets = ASSETS.filter((asset) => asset.stable);
+  const quotes = stableAssets.map((asset) => ({
+    asset,
+    value: toNumber(asset.upbitStableKrw),
+    updatedAt: asset.upbitStableUpdatedAt || 0,
+  }));
+  if (quotes.some((quote) => !Number.isFinite(quote.value))) {
+    return { ok: false, reason: "missing", message: "가격 대기" };
+  }
+  if (quotes.some((quote) => Date.now() - quote.updatedAt > maxAge)) {
+    return { ok: false, reason: "stale", message: "호가 지연" };
+  }
+  return { ok: true, reason: "ok", message: "수신", updatedAt: mostRecentTime(...quotes.map((quote) => quote.updatedAt)) };
+}
+
+function applyStablecoinMarketValue(asset, updatedAt, validation = null) {
+  // 사용자 요청: 스테이블코인은 CoinGecko USD×FX 환산가를 사용하지 않는다.
+  renderStablecoinFailed(state.cards.get(asset.id), asset);
+  return false;
+}
+
+function stablecoinUsdForDisplay(asset) {
+  return null;
+}
+
+function stablecoinDisplayNote(asset, stableUsd, validation = null) {
+  return `${asset.symbol} 국내 거래소 체결가 우선`;
+}
+
+function renderStablecoinWaiting(card, asset) {
+  renderStablecoinFailed(card, asset);
+}
+
+function renderStablecoinFailed(card, asset) {
+  if (!card) return;
+  setCardStatus(card, "error", "실패");
+  card.value.textContent = "실패";
+  card.subvalue.textContent = "Bithumb·Upbit KRW 체결가 수신 실패";
+  updateChangeText(card.change, "--", "neutral");
+  card.source.textContent = "국내 거래소 데이터 없음";
+  card.sparkline.innerHTML = "";
+}
+function combinePercentChanges(first, second) {
+  const a = Number.isFinite(first) ? first : null;
+  const b = Number.isFinite(second) ? second : null;
+  if (a === null && b === null) return null;
+  if (a === null) return b;
+  if (b === null) return a;
+  return ((1 + a / 100) * (1 + b / 100) - 1) * 100;
+}
+
+function mostRecentTime(...times) {
+  const clean = times.filter((time) => Number.isFinite(time));
+  return clean.length ? Math.max(...clean) : Date.now();
+}
+
+async function fetchKoreanIndices() {
+  try {
+    const cacheResult = await fetchGithubKoreanIndexCache();
+    if (cacheResult && cacheResult.renderedCount) {
+      setKoreanIndexSourceFromResult(cacheResult, "GitHub cache");
+      return;
+    }
+  } catch (error) {
+    // GitHub Pages에서 data/korean-index.json이 아직 없거나 손상된 경우 아래 직접 수신을 시도한다.
+    console.warn("Korean index cache failed", error);
+  }
+
+  // 로컬 테스트 또는 GitHub Actions 캐시가 아직 생성되지 않은 경우의 예비 경로.
+  // 브라우저 CORS 때문에 네이버/다음 직접 수신은 실패할 수 있다.
+  const directResult = await fetchKoreanIndicesDirect();
+  setKoreanIndexSourceFromResult(directResult, "browser direct");
+}
+
+async function fetchGithubKoreanIndexCache() {
+  const data = await fetchJson(GITHUB_INDEX_CACHE_URL, 6000);
+  const indices = data?.indices ?? {};
+  const configs = KOREAN_INDEX_CONFIGS;
+  let renderedCount = 0;
+  const failedIds = [];
+  const payloads = [];
+
+  configs.forEach((config) => {
+    const payload = normalizeCachedKoreanIndexPayload(indices[config.cardId]);
+    if (payload && validateKoreanIndexPayload(payload)) {
+      renderIndexCard(config.cardId, payload, payload.source || "Naver/Daum cache");
+      renderedCount += 1;
+      payloads.push(payload);
+    } else {
+      failedIds.push(config.cardId);
+      renderIndexFailed(config.cardId, data?.errors?.[config.cardId] || "GitHub cache 값 없음");
+    }
+  });
+
+  if (!renderedCount) throw new Error("GitHub 지수 캐시 없음");
+
+  const cacheUpdatedAt = toNumber(data.updatedAt) || mostRecentTime(...payloads.map((payload) => payload.updatedAt));
+  const ageMs = Date.now() - cacheUpdatedAt;
+  return {
+    renderedCount,
+    failedIds,
+    payloads,
+    sourceMode: "cache",
+    cacheUpdatedAt,
+    stale: !Number.isFinite(ageMs) || ageMs > KOREAN_INDEX_CACHE_MAX_AGE,
+  };
+}
+
+function normalizeCachedKoreanIndexPayload(payload) {
+  if (!payload || typeof payload !== "object") return null;
+  const price = toNumber(payload.price);
+  const previous = toNumber(payload.previous);
+  const changePct = toNumber(payload.changePct);
+  const updatedAt = toNumber(payload.updatedAt) || Date.now();
+  const points = Array.isArray(payload.points)
+    ? payload.points
+        .map((point) => ({ time: toNumber(point.time) || updatedAt, value: toNumber(point.value) }))
+        .filter((point) => Number.isFinite(point.value))
+    : buildTwoPointHistory(previous, price, updatedAt);
+  return {
+    price,
+    previous,
+    changePct,
+    updatedAt,
+    points,
+    mode: payload.mode || "cache",
+    isLive: Boolean(payload.isLive),
+    source: payload.source || (payload.mode === "daum" ? "Daum Finance" : "Naver Finance"),
+    official: true,
+  };
+}
+
+async function fetchKoreanIndicesDirect() {
+  const configs = KOREAN_INDEX_CONFIGS;
+  const results = await Promise.allSettled(
+    configs.map(async (config) => {
+      const payload = await fetchKoreanIndex(config);
+      renderIndexCard(config.cardId, payload, payload.source);
+      return payload;
+    }),
+  );
+
+  const failedIds = [];
+  results.forEach((result, index) => {
+    if (result.status !== "fulfilled") {
+      failedIds.push(configs[index].cardId);
+      renderIndexFailed(configs[index].cardId, result.reason);
+    }
+  });
+
+  const payloads = results
+    .filter((result) => result.status === "fulfilled")
+    .map((result) => result.value);
+
+  return {
+    renderedCount: payloads.length,
+    failedIds,
+    payloads,
+    sourceMode: "direct",
+    stale: false,
+  };
+}
+
+function setKoreanIndexSourceFromResult(result, modeLabel) {
+  const successCount = result.renderedCount || 0;
+  const failedCount = result.failedIds?.length || 0;
+  const payloads = result.payloads || [];
+  const liveCount = payloads.filter((payload) => payload?.isLive).length;
+  const naverCount = payloads.filter((payload) => payload?.mode === "naver").length;
+  const daumCount = payloads.filter((payload) => payload?.mode === "daum").length;
+
+  if (!successCount) {
+    setSource("yahoo", "error", "Naver/Daum 모두 실패");
+    return;
+  }
+
+  const sourceText = naverCount === successCount
+    ? "Naver"
+    : daumCount === successCount
+      ? "Daum"
+      : `Naver ${naverCount}개 · Daum ${daumCount}개`;
+  const freshness = result.stale ? "지연 캐시" : liveCount ? `장중 ${liveCount}개` : "최근값";
+  const message = failedCount
+    ? `${successCount}개 수신, ${failedCount}개 실패 · ${sourceText}`
+    : `${freshness} · ${sourceText}`;
+  setSource("yahoo", result.stale || failedCount ? "warn" : "ok", `${message} · ${modeLabel}`);
+}
+
+async function fetchKoreanIndex(config) {
+  const errors = [];
+  for (const task of [
+    () => fetchNaverIndex(config.naverCode),
+    () => fetchDaumIndex(config.daumCode),
+  ]) {
+    try {
+      const payload = await task();
+      if (payload && validateKoreanIndexPayload(payload)) return payload;
+    } catch (error) {
+      errors.push(error);
+    }
+  }
+
+  throw errors[0] || new Error("국내 지수 소스 수신 실패");
+}
+
+function validateKoreanIndexPayload(payload) {
+  return Number.isFinite(payload?.price) && Number.isFinite(payload?.updatedAt);
+}
+
+async function fetchNaverIndex(code) {
+  const basicUrl = `${NAVER_INDEX_BASE}/${encodeURIComponent(code)}/basic`;
+  const data = await fetchJsonMultiProxy(basicUrl, 12000);
+  const payload = unwrapFirstPayload(data);
+  const price = pickNumberDeep(payload, [
+    "closePrice",
+    "nowVal",
+    "currentPrice",
+    "tradePrice",
+    "price",
+  ]);
+  if (!Number.isFinite(price)) throw new Error(`${code} Naver 지수값 없음`);
+
+  const changePoint = pickNumberDeep(payload, [
+    "compareToPreviousClosePrice",
+    "changePrice",
+    "diffPrice",
+    "changeVal",
+    "change",
+  ]);
+  let changePct = pickNumberDeep(payload, [
+    "fluctuationsRatio",
+    "fluctuationRate",
+    "compareToPreviousClosePriceRatio",
+    "changeRate",
+    "signedChangeRate",
+  ]);
+  if (Number.isFinite(changePct) && Math.abs(changePct) <= 1 && /rate/i.test(String(findKeyDeep(payload, ["changeRate", "signedChangeRate"]) || ""))) {
+    changePct *= 100;
+  }
+  const previous = pickNumberDeep(payload, ["previousClosePrice", "basePrice", "prevClosePrice"]) ||
+    (Number.isFinite(changePoint) ? price - changePoint : null);
+  if (!Number.isFinite(changePct) && Number.isFinite(previous) && previous) {
+    changePct = ((price - previous) / previous) * 100;
+  }
+  const timeText = pickStringDeep(payload, [
+    "localTradedAt",
+    "tradeDateTime",
+    "tradedAt",
+    "asOfDateTime",
+    "dateTime",
+    "date",
+  ]);
+  const updatedAt = parseKoreanIndexTime(timeText) || Date.now();
+  const history = await fetchNaverIndexHistory(code).catch(() => []);
+  const points = history.length ? history : buildTwoPointHistory(previous, price, updatedAt);
+  const marketState = pickStringDeep(payload, ["marketStatus", "marketState", "tradeStatus", "status"]);
+
+  return {
+    price,
+    previous,
+    changePct,
+    updatedAt,
+    points,
+    mode: "naver",
+    isLive: isIndexLiveFromPayload(updatedAt, marketState),
+    source: "Naver Finance",
+    official: true,
+  };
+}
+
+async function fetchNaverIndexHistory(code) {
+  const url = `${NAVER_INDEX_BASE}/${encodeURIComponent(code)}/price?pageSize=80&page=1`;
+  const data = await fetchJsonMultiProxy(url, 12000);
+  const rows = unwrapRows(data);
+  if (!Array.isArray(rows)) return [];
+  return rows
+    .map((row) => {
+      const value = pickNumberDeep(row, ["closePrice", "nowVal", "currentPrice", "price"]);
+      const time = parseKoreanIndexTime(pickStringDeep(row, ["localTradedAt", "date", "tradeDate", "tradedAt"]));
+      return Number.isFinite(value) ? { time: time || Date.now(), value } : null;
+    })
+    .filter(Boolean)
+    .reverse();
+}
+
+async function fetchDaumIndex(code) {
+  const urls = [
+    `${DAUM_QUOTE_BASE}/${encodeURIComponent(code)}?summary=false`,
+    `${DAUM_QUOTE_BASE}/${encodeURIComponent(code)}`,
+  ];
+  let lastError;
+  for (const url of urls) {
+    try {
+      const data = await fetchJsonMultiProxy(url, 12000);
+      const payload = unwrapFirstPayload(data);
+      const price = pickNumberDeep(payload, ["tradePrice", "currentPrice", "price", "closePrice"]);
+      if (!Number.isFinite(price)) throw new Error(`${code} Daum 지수값 없음`);
+      let changePct = pickNumberDeep(payload, ["changeRate", "signedChangeRate", "changeRateValue", "fluctuationRate"]);
+      if (Number.isFinite(changePct) && Math.abs(changePct) <= 1) changePct *= 100;
+      const changePoint = pickNumberDeep(payload, ["changePrice", "signedChangePrice", "change", "compareToPreviousClosePrice"]);
+      const previous = pickNumberDeep(payload, ["prevClosingPrice", "previousClosePrice", "basePrice"]) ||
+        (Number.isFinite(changePoint) ? price - changePoint : null);
+      if (!Number.isFinite(changePct) && Number.isFinite(previous) && previous) {
+        changePct = ((price - previous) / previous) * 100;
+      }
+      const updatedAt = parseKoreanIndexTime(
+        pickStringDeep(payload, ["date", "tradeDate", "tradeDateTime", "localTradedAt", "timestamp"]),
+      ) || Date.now();
+      return {
+        price,
+        previous,
+        changePct,
+        updatedAt,
+        points: buildTwoPointHistory(previous, price, updatedAt),
+        mode: "daum",
+        isLive: isIndexLiveFromPayload(updatedAt),
+        source: "Daum Finance",
+        official: true,
+      };
+    } catch (error) {
+      lastError = error;
+    }
+  }
+  throw lastError;
+}
+
+function buildTwoPointHistory(previous, price, updatedAt) {
+  if (Number.isFinite(previous) && Number.isFinite(price)) {
+    return [
+      { time: updatedAt - 24 * 60 * 60000, value: previous },
+      { time: updatedAt, value: price },
+    ];
+  }
+  return Number.isFinite(price) ? [{ time: updatedAt, value: price }] : [];
+}
+
+async function fetchYahooIndex(symbols) {
+  let lastError;
+  const symbolList = Array.isArray(symbols) ? symbols : [symbols];
+  const attempts = [
+    { range: "1d", interval: "1m", mode: "intraday" },
+    { range: "5d", interval: "5m", mode: "intraday" },
+    { range: "5d", interval: "1d", mode: "daily" },
+  ];
+
+  for (const symbol of symbolList) {
+    for (const attempt of attempts) {
+      const urls = ["query1.finance.yahoo.com", "query2.finance.yahoo.com"].map(
+        (host) =>
+          `https://${host}/v8/finance/chart/${encodeURIComponent(symbol)}` +
+          `?range=${attempt.range}&interval=${attempt.interval}&includePrePost=false`,
+      );
+      for (const url of urls) {
+        try {
+          const data = await fetchJsonMaybeProxied(url, 12000, { directTimeout: 3000, race: true });
+          const parsed = parseYahooIndexChart(data, attempt.mode);
+          if (parsed) return { ...parsed, source: "Yahoo Finance", official: false };
+        } catch (error) {
+          lastError = error;
+        }
+      }
+    }
+  }
+  throw lastError;
+}
+
+function parseYahooIndexChart(data, mode) {
+  const result = data.chart?.result?.[0];
+  if (!result) return null;
+
+  const meta = result.meta ?? {};
+  const timestamps = result.timestamp ?? [];
+  const closes = result.indicators?.quote?.[0]?.close ?? [];
+  const points = timestamps
+    .map((time, index) => ({ time: time * 1000, value: toNumber(closes[index]) }))
+    .filter((point) => Number.isFinite(point.value));
+  const latestPoint = lastOf(points);
+  if (!latestPoint) return null;
+  const price = mode === "intraday" ? latestPoint.value : toNumber(meta.regularMarketPrice) || latestPoint.value;
+  const metaChangePct = toNumber(meta.regularMarketChangePercent);
+  const previous = toNumber(meta.chartPreviousClose) || toNumber(meta.previousClose) || toNumber(meta.regularMarketPreviousClose) || previousOf(points)?.value;
+  const changePct = Number.isFinite(metaChangePct) ? metaChangePct : previous ? ((price - previous) / previous) * 100 : null;
+  const updatedAt = latestPoint.time || (meta.regularMarketTime ? meta.regularMarketTime * 1000 : null);
+  const isLive = mode === "intraday" && isKoreanMarketOpenNow() && updatedAt && Date.now() - updatedAt < 10 * 60000;
+
+  return {
+    price,
+    previous,
+    changePct,
+    updatedAt,
+    points,
+    mode,
+    isLive,
+  };
+}
+
+function renderIndexCard(cardId, payload, source) {
+  const modeLabel = payload.isLive ? "장중" : "최근값";
+  renderSimpleCard(cardId, {
+    value: formatIndex(payload.price),
+    subvalue: payload.updatedAt ? `${modeLabel} · 기준 ${formatDateTime(payload.updatedAt)}` : `${modeLabel} 기준`,
+    change: formatPercent(payload.changePct),
+    changeType: signType(payload.changePct),
+    source,
+    updatedAt: payload.updatedAt,
+    history: payload.points.map((point) => point.value),
+    statusText: payload.isLive ? "Live" : "수신",
+    statusTone: "live",
+  });
+}
+
+function renderIndexFailed(cardId, error = null) {
+  const card = state.cards.get(cardId);
+  if (!card) return;
+  card.value.textContent = "실패";
+  card.subvalue.textContent = "Naver/Daum 국내 지수 수신 실패";
+  updateChangeText(card.change, "--", "neutral");
+  card.source.textContent = shortError(error || "수신 실패");
+  card.history = [];
+  card.sparkline.innerHTML = "";
+  setCardStatus(card, "error", "실패");
+}
+
+async function fetchFearGreed() {
+  const data = await fetchJsonWithProxyFallback("https://api.alternative.me/fng/?limit=30&format=json", 10000);
+  const rows = (data.data ?? []).map((item) => ({
+    value: toNumber(item.value),
+    label: item.value_classification,
+    time: Number(item.timestamp) * 1000,
+  }));
+  const latest = rows.find((row) => Number.isFinite(row.value));
+  if (!latest) throw new Error("F&G 값 없음");
+
+  const value = Math.max(0, Math.min(100, latest.value));
+  $("#fngValue").textContent = String(Math.round(value));
+  $("#fngClass").textContent = translateFearGreed(latest.label);
+  $("#fngDate").textContent = `기준 ${formatDate(latest.time)}`;
+  $("#fngGauge").style.setProperty("--gauge-value", `${value * 3.6}deg`);
+  setChip("#fngFreshness", "live", "수신 완료");
+  renderSparkline(
+    $("#fngSparkline"),
+    rows
+      .slice()
+      .reverse()
+      .map((row) => row.value),
+    { color: value >= 55 ? "green" : value <= 35 ? "red" : "amber", min: 0, max: 100 },
+  );
+  setSource("alternative", "ok", "F&G 수신");
+}
+
+async function fetchEtfFlow() {
+  let rows;
+  try {
+    const raw = await fetchTextMaybeProxied(FARSIDE_URL, 16000, { proxyFirst: true, directTimeout: 3000, race: true });
+    rows = parseFarside(raw);
+    if (!rows.length) throw new Error("ETF flow 파싱 실패");
+  } catch (error) {
+    if (renderCachedEtf()) {
+      setSource("farside", "warn", "캐시 사용");
+      return;
+    }
+    throw error;
+  }
+  renderEtfRows(rows, "수신 완료");
+  setSource("farside", "ok", "ETF flow 수신");
+}
+
+function renderEtfRows(rows, chipText) {
+  const normalized = rows
+    .map((row) => ({
+      time: row.time ?? Date.parse(`${row.date}T00:00:00Z`),
+      total: toNumber(row.total),
+    }))
+    .filter((row) => Number.isFinite(row.time) && Number.isFinite(row.total))
+    .sort((a, b) => a.time - b.time);
+  if (!normalized.length) return false;
+  const latest = lastOf(normalized);
+  const lastFive = normalized.slice(-5).reduce((sum, row) => sum + row.total, 0);
+  const cumulative = normalized.reduce((sum, row) => sum + row.total, 0);
+  const valueEl = $("#etfValue");
+  valueEl.textContent = formatMoneyMillions(latest.total);
+  valueEl.style.color = latest.total >= 0 ? "var(--green)" : "var(--red)";
+  $("#etfDate").textContent = `기준 ${formatDate(latest.time)}`;
+  $("#etfCumulative").textContent = formatMoneyMillions(cumulative);
+  $("#etfWeekly").textContent = `5거래일 합계 ${formatMoneyMillions(lastFive)}`;
+  setChip("#etfFreshness", chipText === "캐시 사용" ? "warn" : "live", chipText);
+  renderSparkline(
+    $("#etfSparkline"),
+    normalized.slice(-28).map((row) => row.total),
+    { color: latest.total >= 0 ? "green" : "red", baseline: 0 },
+  );
+  return true;
+}
+
+function renderCachedEtf() {
+  const rows = state.cache?.etf;
+  if (!Array.isArray(rows) || !rows.length) return false;
+  return renderEtfRows(rows, "캐시 사용");
+}
+
+async function loadMarketCache() {
+  try {
+    state.cache = await fetchJson("./data/market-cache.json", 4000);
+    if (renderCachedEtf()) setSource("farside", "warn", "캐시 표시");
+  } catch {
+    state.cache = null;
+  }
+}
+
+function renderCachedIndices(ids = ["kospi", "kosdaq"]) {
+  const indices = state.cache?.indices ?? {};
+  let rendered = 0;
+  ids.forEach((id) => {
+    const payload = indices[id];
+    if (!payload || !Number.isFinite(toNumber(payload.price))) return;
+    renderIndexCard(id, payload, "캐시");
+    rendered += 1;
+  });
+  return rendered;
+}
+
+async function fetchBtcRsi() {
+  const url =
+    "https://api.coingecko.com/api/v3/coins/bitcoin/market_chart" +
+    "?vs_currency=usd&days=90&interval=daily";
+  const data = await fetchJsonWithProxyFallback(url, 12000);
+  const points = normalizeDailyPrices(data.prices ?? []);
+  const rsi = calculateRsi(points.map((point) => point.value), 14);
+  if (!Number.isFinite(rsi.value)) throw new Error("RSI 계산 실패");
+
+  const value = rsi.value;
+  $("#rsiValue").textContent = value.toFixed(1);
+  $("#rsiClass").textContent = classifyRsi(value);
+  $("#rsiNote").textContent = `BTC daily close, 기준 ${formatDate(lastOf(points)?.time)}`;
+  setChip("#rsiFreshness", "live", "수신 완료");
+  renderSparkline($("#rsiSparkline"), rsi.series, {
+    color: value >= 70 ? "red" : value <= 30 ? "blue" : "green",
+    min: 0,
+    max: 100,
+  });
+  setSource("rsi", "ok", "RSI 계산 완료");
+}
+
+function connectCoinbase() {
+  if (state.paused || state.ws || !("WebSocket" in window)) return;
+  window.clearTimeout(state.wsReconnectTimer);
+  setSource("coinbase", "warn", "연결 중");
+
+  const ws = new WebSocket(COINBASE_WS);
+  state.ws = ws;
+
+  ws.addEventListener("open", () => {
+    ws.send(
+      JSON.stringify({
+        type: "subscribe",
+        product_ids: COINBASE_PRODUCTS,
+        channels: ["ticker_batch"],
+      }),
+    );
+    setSource("coinbase", "ok", "실시간 연결");
+    setGlobalStatus("live", "실시간 수신 중");
+  });
+
+  ws.addEventListener("message", (event) => {
+    let message;
+    try {
+      message = JSON.parse(event.data);
+    } catch {
+      return;
+    }
+    if (message.type === "error") {
+      const previous = state.sources.get("coinbase");
+      setSource("coinbase", previous?.status === "ok" ? "warn" : "error", message.message || "WebSocket 오류");
+      return;
+    }
+    if (message.type !== "ticker" || !message.product_id) return;
+    const asset = ASSET_BY_PRODUCT.get(message.product_id);
+    if (!asset) return;
+    const price = toNumber(message.price);
+    if (!price) return;
+
+    if (asset.stable) return;
+
+    const open = toNumber(message.open_24h);
+    asset.usd = price;
+    asset.usdChange = open ? ((price - open) / open) * 100 : asset.usdChange;
+    asset.volume24h = toNumber(message.volume_24h) * price;
+    asset.updatedAt = Date.parse(message.time) || Date.now();
+    asset.source = "Coinbase";
+    if (state.usdKrw && !hasFreshKrwQuote(asset)) {
+      setKrwQuote(asset, {
+        krw: price * state.usdKrw,
+        change: asset.usdChange,
+        source: "환율 환산",
+        updatedAt: asset.updatedAt,
+      });
+      appendHistory(state.cards.get(asset.id), asset.krw);
+      renderAsset(asset, "환율 환산");
+    }
+  });
+
+  ws.addEventListener("close", () => {
+    if (state.ws === ws) state.ws = null;
+    if (!state.paused) {
+      setSource("coinbase", "warn", "재연결 대기");
+      state.wsReconnectTimer = window.setTimeout(connectCoinbase, 5000);
+    }
+  });
+
+  ws.addEventListener("error", () => {
+    setSource("coinbase", "error", "연결 오류");
+    ws.close();
+  });
+}
+
+function closeCoinbase() {
+  window.clearTimeout(state.wsReconnectTimer);
+  if (state.ws) {
+    state.ws.close();
+    state.ws = null;
+  }
+  setSource("coinbase", "warn", "일시정지");
+}
+
+function setKrwQuote(asset, { krw, change, source, updatedAt }) {
+  if (Number.isFinite(krw)) asset.krw = krw;
+  if (Number.isFinite(change)) asset.krwChange = change;
+  if (source) asset.krwSource = source;
+  if (updatedAt) asset.krwUpdatedAt = updatedAt;
+}
+
+function hasFreshKrwQuote(asset, maxAge = 60000) {
+  return asset.krwSource === "Upbit" && Date.now() - (asset.krwUpdatedAt ?? 0) < maxAge;
+}
+
+function upbitTimestamp(row) {
+  const candidates = [row.timestamp, row.trade_timestamp, row.trade_date_kst && row.trade_time_kst ? `${row.trade_date_kst}T${row.trade_time_kst}+09:00` : null];
+  for (const candidate of candidates) {
+    if (typeof candidate === "number" && Number.isFinite(candidate)) {
+      return candidate > 1000000000000 ? candidate : candidate * 1000;
+    }
+    if (typeof candidate === "string" && candidate) {
+      const parsed = Date.parse(candidate);
+      if (Number.isFinite(parsed)) return parsed;
+    }
+  }
+  return null;
+}
+
+function isKoreanMarketOpenNow(date = new Date()) {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: "Asia/Seoul",
+    weekday: "short",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  }).formatToParts(date);
+  const values = Object.fromEntries(parts.map((part) => [part.type, part.value]));
+  if (values.weekday === "Sat" || values.weekday === "Sun") return false;
+  const hour = Number(values.hour);
+  const minute = Number(values.minute);
+  if (!Number.isFinite(hour) || !Number.isFinite(minute)) return false;
+  const minutes = hour * 60 + minute;
+  return minutes >= 9 * 60 && minutes <= 15 * 60 + 30;
+}
+
+function renderAsset(asset, source) {
+  const card = state.cards.get(asset.id);
+  if (!card) return;
+  const krw = asset.krw;
+  const change = asset.krwChange;
+  const sourceLabel = asset.krwSource || source || "KRW";
+  const updatedAt = asset.krwUpdatedAt || asset.updatedAt;
+  card.value.textContent = Number.isFinite(krw) ? formatKrwPrice(krw, asset.stable ? 2 : null) : "--";
+  card.subvalue.textContent = Number.isFinite(krw)
+    ? asset.stable
+      ? asset.stableDisplayNote || `${asset.symbol}/USD × USD/KRW`
+      : "원화 기준 24시간 변동률"
+    : asset.stable
+      ? `${asset.symbol}/USD와 USD/KRW 수신 후 표시`
+      : "원화 가격 대기";
+  updateChange(card.change, change);
+  card.source.textContent = updatedAt ? `${sourceLabel} · ${timeAgo(updatedAt)}` : sourceLabel;
+  setCardStatus(card, "live", sourceLabel.startsWith("Bithumb") || sourceLabel.startsWith("Upbit") ? "Live" : asset.stable ? "수신" : "수신");
+  renderSparkline(card.sparkline, card.history, { color: signType(change) === "negative" ? "red" : "green" });
+}
+
+function renderSimpleCard(cardId, payload) {
+  const card = state.cards.get(cardId);
+  if (!card) return;
+  card.value.textContent = payload.value ?? "--";
+  card.subvalue.textContent = payload.subvalue ?? "";
+  card.source.textContent = payload.updatedAt ? `${payload.source} · ${timeAgo(payload.updatedAt)}` : payload.source;
+  updateChangeText(card.change, payload.change, payload.changeType);
+  setCardStatus(card, payload.statusTone || (payload.changeType === "negative" ? "warn" : "live"), payload.statusText || "수신");
+
+  if (payload.history) {
+    card.history = payload.history.filter(Number.isFinite);
+  } else if (Number.isFinite(payload.historyValue)) {
+    appendHistory(card, payload.historyValue);
+  }
+  renderSparkline(card.sparkline, card.history, { color: payload.changeType === "negative" ? "red" : "green" });
+}
+
+function appendHistory(card, value) {
+  if (!card || !Number.isFinite(value)) return;
+  card.history.push(value);
+  if (card.history.length > 90) card.history.shift();
+}
+
+function setCardStatus(card, status, text) {
+  card.status.className = `status-pill ${status}`;
+  card.status.textContent = text;
+}
+
+function updateChange(element, value) {
+  updateChangeText(element, formatPercent(value), signType(value));
+}
+
+function updateChangeText(element, text, type) {
+  element.className = `change-badge ${type === "positive" ? "positive" : type === "negative" ? "negative" : ""}`;
+  element.textContent = text ?? "--";
+}
+
+function renderSources() {
+  const grid = $("#sourceGrid");
+  grid.innerHTML = "";
+  SOURCES.forEach((source) => {
+    const item = document.createElement("div");
+    item.className = "source-item warn";
+    item.dataset.source = source.id;
+    item.innerHTML = `<strong>${source.label}</strong><span>${source.detail} · 대기</span>`;
+    grid.appendChild(item);
+  });
+}
+
+function setSource(id, status, message) {
+  const source = state.sources.get(id);
+  if (!source) return;
+  source.status = status;
+  source.message = message;
+  source.updatedAt = Date.now();
+
+  const item = $(`[data-source="${id}"]`);
+  if (item) {
+    item.className = `source-item ${status}`;
+    item.innerHTML = `<strong>${source.label}</strong><span>${source.detail} · ${message}</span>`;
+  }
+}
+
+function summarizeGlobalStatus() {
+  const statuses = [...state.sources.values()].map((source) => source.status);
+  if (statuses.includes("ok")) {
+    setGlobalStatus(statuses.includes("error") ? "warn" : "live", statuses.includes("error") ? "일부 소스 지연" : "실시간 수신 중");
+  } else if (statuses.includes("error")) {
+    setGlobalStatus("error", "데이터 수신 오류");
+  } else {
+    setGlobalStatus("warn", "데이터 대기");
+  }
+}
+
+function setGlobalStatus(status, text) {
+  const el = $("#globalStatus");
+  el.className = `live-state ${status === "live" ? "live" : status === "error" ? "error" : ""}`;
+  $("#globalStatusText").textContent = text;
+}
+
+function setChip(selector, status, text) {
+  const chip = $(selector);
+  chip.className = `data-chip ${status}`;
+  chip.textContent = text;
+}
+
+function markTaskPending(sourceId) {
+  if (sourceId === "alternative") setChip("#fngFreshness", "warn", "갱신 중");
+  if (sourceId === "farside") setChip("#etfFreshness", "warn", "갱신 중");
+  if (sourceId === "rsi") setChip("#rsiFreshness", "warn", "갱신 중");
+}
+
+function markTaskError(sourceId) {
+  if (sourceId === "alternative") setChip("#fngFreshness", "error", "수신 실패");
+  if (sourceId === "farside") setChip("#etfFreshness", "error", "수신 실패");
+  if (sourceId === "rsi") setChip("#rsiFreshness", "error", "수신 실패");
+}
+
+async function fetchJson(url, timeoutMs) {
+  const text = await fetchText(url, timeoutMs);
+  return JSON.parse(text);
+}
+
+async function fetchJsonWithProxyFallback(url, timeoutMs, options = {}) {
+  try {
+    return await fetchJson(url, timeoutMs);
+  } catch (directError) {
+    const text = await fetchTextMaybeProxied(url, timeoutMs, {
+      proxyFirst: true,
+      directTimeout: options.directTimeout ?? 3000,
+      race: options.race ?? true,
+    });
+    try {
+      return JSON.parse(text);
+    } catch {
+      throw directError;
+    }
+  }
+}
+
+async function fetchText(url, timeoutMs) {
+  const controller = new AbortController();
+  const timeout = window.setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const response = await fetch(addCacheBuster(url), {
+      cache: "no-store",
+      signal: controller.signal,
+    });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    return await response.text();
+  } finally {
+    window.clearTimeout(timeout);
+  }
+}
+
+async function fetchTextMaybeProxied(url, timeoutMs, options = {}) {
+  const direct = { url, timeout: options.directTimeout ?? timeoutMs };
+  const proxy = {
+    url: `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
+    timeout: timeoutMs,
+  };
+  const candidates = options.proxyFirst ? [proxy, direct] : [direct, proxy];
+  if (options.race) return fetchFirstSuccessful(candidates);
+
+  let lastError;
+  for (const candidate of candidates) {
+    try {
+      return await fetchText(candidate.url, candidate.timeout);
+    } catch (error) {
+      lastError = error;
+    }
+  }
+  throw lastError;
+}
+
+async function fetchJsonMaybeProxied(url, timeoutMs, options = {}) {
+  const text = await fetchTextMaybeProxied(url, timeoutMs, options);
+  return JSON.parse(text);
+}
+
+function fetchFirstSuccessful(candidates) {
+  return new Promise((resolve, reject) => {
+    let failed = 0;
+    let settled = false;
+    let lastError;
+    candidates.forEach((candidate) => {
+      fetchText(candidate.url, candidate.timeout)
+        .then((text) => {
+          if (settled) return;
+          settled = true;
+          resolve(text);
+        })
+        .catch((error) => {
+          lastError = error;
+          failed += 1;
+          if (!settled && failed === candidates.length) reject(lastError);
+        });
+    });
+  });
+}
+
+function addCacheBuster(url) {
+  const separator = url.includes("?") ? "&" : "?";
+  return `${url}${separator}_=${Date.now()}`;
+}
+
+function parseFarside(raw) {
+  const fromHtml = parseFarsideHtml(raw);
+  if (fromHtml.length) return fromHtml;
+  return parseFarsideLines(raw);
+}
+
+function parseFarsideHtml(raw) {
+  const doc = new DOMParser().parseFromString(raw, "text/html");
+  const tables = [...doc.querySelectorAll("table")];
+  for (const table of tables) {
+    const rows = [...table.querySelectorAll("tr")].map((row) =>
+      [...row.children].map((cell) => cleanCell(cell.textContent)),
+    );
+    const headerIndex = rows.findIndex((row) => row.some((cell) => /^date$/i.test(cell)) && row.some((cell) => /^total$/i.test(cell)));
+    if (headerIndex < 0) continue;
+    const header = rows[headerIndex].map((cell) => cell.toLowerCase());
+    const dateIndex = header.findIndex((cell) => cell === "date");
+    const totalIndex = header.findIndex((cell) => cell === "total");
+    const parsed = rows
+      .slice(headerIndex + 1)
+      .map((row) => {
+        const date = parseFarsideDate(row[dateIndex]);
+        const total = parseNumberCell(row[totalIndex]);
+        return date && Number.isFinite(total) ? { time: date.getTime(), total } : null;
+      })
+      .filter(Boolean);
+    if (parsed.length) return parsed;
+  }
+  return [];
+}
+
+function parseFarsideLines(raw) {
+  const datePattern = /^\d{1,2} [A-Z][a-z]{2} \d{4}$/;
+  const numericPattern = /^(?:-|\(?-?[\d,.]+\)?)$/;
+  const lines = raw
+    .split(/\r?\n/)
+    .map(cleanCell)
+    .filter(Boolean);
+  const rows = [];
+
+  for (let index = 0; index < lines.length; index += 1) {
+    if (!datePattern.test(lines[index])) continue;
+    const date = parseFarsideDate(lines[index]);
+    const values = [];
+    for (let cursor = index + 1; cursor < lines.length; cursor += 1) {
+      if (datePattern.test(lines[cursor]) || /^total$/i.test(lines[cursor])) break;
+      if (numericPattern.test(lines[cursor])) values.push(parseNumberCell(lines[cursor]));
+      if (values.length >= 13) break;
+    }
+    if (date && values.length >= 13) rows.push({ time: date.getTime(), total: values[12] });
+  }
+  return rows;
+}
+
+function cleanCell(value) {
+  return String(value ?? "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function parseFarsideDate(value) {
+  const date = new Date(`${value} 00:00:00 UTC`);
+  return Number.isNaN(date.getTime()) ? null : date;
+}
+
+function parseNumberCell(value) {
+  const text = cleanCell(value);
+  if (!text || text === "-") return 0;
+  const negative = /^\(.+\)$/.test(text);
+  const normalized = text.replace(/[(),$]/g, "").replace(/,/g, "").replace(/[^\d.-]/g, "");
+  const number = Number(normalized);
+  if (!Number.isFinite(number)) return NaN;
+  return negative ? -Math.abs(number) : number;
+}
+
+function normalizeDailyPrices(prices) {
+  const byDate = new Map();
+  prices.forEach(([time, value]) => {
+    const dateKey = new Date(time).toISOString().slice(0, 10);
+    byDate.set(dateKey, { time, value: toNumber(value) });
+  });
+  return [...byDate.values()].filter((point) => Number.isFinite(point.value));
+}
+
+function calculateRsi(values, period) {
+  if (values.length <= period + 1) return { value: null, series: [] };
+  let gain = 0;
+  let loss = 0;
+  for (let index = 1; index <= period; index += 1) {
+    const diff = values[index] - values[index - 1];
+    if (diff >= 0) gain += diff;
+    else loss -= diff;
+  }
+  let avgGain = gain / period;
+  let avgLoss = loss / period;
+  const series = [];
+
+  for (let index = period + 1; index < values.length; index += 1) {
+    const diff = values[index] - values[index - 1];
+    avgGain = (avgGain * (period - 1) + Math.max(diff, 0)) / period;
+    avgLoss = (avgLoss * (period - 1) + Math.max(-diff, 0)) / period;
+    const value = avgLoss === 0 ? (avgGain === 0 ? 50 : 100) : 100 - 100 / (1 + avgGain / avgLoss);
+    series.push(value);
+  }
+  return { value: lastOf(series), series };
+}
+
+function renderSparkline(container, values, options = {}) {
+  const clean = values.filter(Number.isFinite);
+  if (clean.length < 2) {
+    container.innerHTML = "";
+    return;
+  }
+  const min = Number.isFinite(options.min) ? options.min : Math.min(...clean, options.baseline ?? Infinity);
+  const max = Number.isFinite(options.max) ? options.max : Math.max(...clean, options.baseline ?? -Infinity);
+  const span = max - min || 1;
+  const width = 100;
+  const height = 38;
+  const points = clean.map((value, index) => {
+    const x = (index / (clean.length - 1)) * width;
+    const y = height - ((value - min) / span) * height;
+    return [x, y];
+  });
+  const line = points.map(([x, y], index) => `${index ? "L" : "M"}${x.toFixed(2)} ${y.toFixed(2)}`).join(" ");
+  const area = `${line} L100 ${height} L0 ${height} Z`;
+  const color = sparkColor(options.color);
+  const baseline = Number.isFinite(options.baseline)
+    ? `<line x1="0" x2="100" y1="${(height - ((options.baseline - min) / span) * height).toFixed(2)}" y2="${(height - ((options.baseline - min) / span) * height).toFixed(2)}" stroke="rgba(21,32,29,.22)" stroke-width="1" stroke-dasharray="3 3" />`
+    : "";
+
+  container.innerHTML = `
+    <svg viewBox="0 0 100 ${height}" preserveAspectRatio="none" role="img" aria-label="최근 추이">
+      ${baseline}
+      <path class="area" d="${area}" fill="${color}"></path>
+      <path d="${line}" fill="none" stroke="${color}" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+  `;
+}
+
+function sparkColor(name) {
+  if (name === "red") return "#c2413b";
+  if (name === "amber") return "#a16207";
+  if (name === "blue") return "#2563eb";
+  return "#0f8f6b";
+}
+
+function updateClock() {
+  $("#seoulClock").textContent = new Intl.DateTimeFormat("ko-KR", {
+    timeZone: "Asia/Seoul",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+  }).format(new Date());
+}
+
+function updateCountdown() {
+  const label = $("#nextRefresh");
+  if (state.paused) {
+    label.textContent = "자동 갱신 정지";
+    return;
+  }
+  const remaining = Math.max(0, Math.ceil((state.nextRefreshAt - Date.now()) / 1000));
+  label.textContent = `다음 갱신 ${remaining}초`;
+}
+
+function fetchJsonMultiProxy(url, timeoutMs) {
+  const proxyUrls = [
+    url,
+    `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
+    `https://corsproxy.io/?${encodeURIComponent(url)}`,
+    `https://thingproxy.freeboard.io/fetch/${url}`,
+  ];
+  const candidates = proxyUrls.map((candidate, index) => ({
+    url: candidate,
+    timeout: index === 0 ? Math.min(3500, timeoutMs) : timeoutMs,
+  }));
+  return fetchFirstSuccessful(candidates).then((text) => JSON.parse(text));
+}
+
+function unwrapFirstPayload(data) {
+  if (Array.isArray(data)) return data[0] || {};
+  if (Array.isArray(data?.result)) return data.result[0] || {};
+  if (Array.isArray(data?.data)) return data.data[0] || {};
+  if (Array.isArray(data?.list)) return data.list[0] || {};
+  return data?.result || data?.data || data || {};
+}
+
+function unwrapRows(data) {
+  if (Array.isArray(data)) return data;
+  if (Array.isArray(data?.result)) return data.result;
+  if (Array.isArray(data?.data)) return data.data;
+  if (Array.isArray(data?.prices)) return data.prices;
+  if (Array.isArray(data?.list)) return data.list;
+  if (Array.isArray(data?.result?.list)) return data.result.list;
+  if (Array.isArray(data?.result?.prices)) return data.result.prices;
+  return [];
+}
+
+function findKeyDeep(object, keys) {
+  if (!object || typeof object !== "object") return null;
+  const stack = [object];
+  const seen = new Set();
+  while (stack.length) {
+    const current = stack.pop();
+    if (!current || typeof current !== "object" || seen.has(current)) continue;
+    seen.add(current);
+    for (const key of keys) {
+      if (Object.prototype.hasOwnProperty.call(current, key)) return key;
+    }
+    Object.values(current).forEach((value) => {
+      if (value && typeof value === "object") stack.push(value);
+    });
+  }
+  return null;
+}
+
+function pickNumberDeep(object, keys) {
+  if (!object || typeof object !== "object") return null;
+  const stack = [object];
+  const seen = new Set();
+  while (stack.length) {
+    const current = stack.pop();
+    if (!current || typeof current !== "object" || seen.has(current)) continue;
+    seen.add(current);
+    for (const key of keys) {
+      const value = toNumber(current[key]);
+      if (Number.isFinite(value)) return value;
+    }
+    Object.values(current).forEach((value) => {
+      if (value && typeof value === "object") stack.push(value);
+    });
+  }
+  return null;
+}
+
+function pickStringDeep(object, keys) {
+  if (!object || typeof object !== "object") return null;
+  const stack = [object];
+  const seen = new Set();
+  while (stack.length) {
+    const current = stack.pop();
+    if (!current || typeof current !== "object" || seen.has(current)) continue;
+    seen.add(current);
+    for (const key of keys) {
+      const value = current[key];
+      if (value !== null && value !== undefined && String(value).trim()) return String(value).trim();
+    }
+    Object.values(current).forEach((value) => {
+      if (value && typeof value === "object") stack.push(value);
+    });
+  }
+  return null;
+}
+
+function isIndexLiveFromPayload(updatedAt, marketState = "") {
+  const stateText = String(marketState || "").toUpperCase();
+  if (/(CLOSE|CLOSED|장마감|AFTER)/.test(stateText)) return false;
+  if (/(OPEN|REGULAR|TRADE|장중)/.test(stateText)) return true;
+  return isKoreanMarketOpenNow() && Number.isFinite(updatedAt) && Date.now() - updatedAt < 10 * 60000;
+}
+
+function toNumber(value) {
+  if (typeof value === "number") return Number.isFinite(value) ? value : null;
+  if (typeof value === "string") {
+    const text = value.trim();
+    if (!text || text === "--") return null;
+    const normalized = text.replace(/,/g, "").replace(/%/g, "").replace(/[^0-9+\-.]/g, "");
+    if (!normalized || normalized === "+" || normalized === "-" || normalized === ".") return null;
+    const number = Number(normalized);
+    return Number.isFinite(number) ? number : null;
+  }
+  const number = Number(value);
+  return Number.isFinite(number) ? number : null;
+}
+
+function pickNumber(object, keys) {
+  if (!object) return null;
+  for (const key of keys) {
+    const value = toNumber(object[key]);
+    if (Number.isFinite(value)) return value;
+  }
+  return null;
+}
+
+function pickString(object, keys) {
+  if (!object) return null;
+  for (const key of keys) {
+    const value = object[key];
+    if (value !== null && value !== undefined && String(value).trim()) return String(value).trim();
+  }
+  return null;
+}
+
+function parseKoreanIndexTime(value) {
+  if (!value) return null;
+  const raw = String(value).trim();
+  if (!raw) return null;
+  if (/^\d{8}$/.test(raw)) {
+    const normalized = `${raw.slice(0, 4)}-${raw.slice(4, 6)}-${raw.slice(6, 8)}T15:30:00+09:00`;
+    const parsed = Date.parse(normalized);
+    return Number.isFinite(parsed) ? parsed : null;
+  }
+  if (/^\d{14}$/.test(raw)) {
+    const normalized = `${raw.slice(0, 4)}-${raw.slice(4, 6)}-${raw.slice(6, 8)}T${raw.slice(8, 10)}:${raw.slice(10, 12)}:${raw.slice(12, 14)}+09:00`;
+    const parsed = Date.parse(normalized);
+    return Number.isFinite(parsed) ? parsed : null;
+  }
+  let normalized = raw.replace(/\./g, "-").replace(/\s+/, "T");
+  if (/^\d{4}-\d{2}-\d{2}$/.test(normalized)) normalized += "T15:30:00+09:00";
+  if (/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2})?$/.test(normalized)) normalized += "+09:00";
+  const parsed = Date.parse(normalized);
+  return Number.isFinite(parsed) ? parsed : null;
+}
+
+function signType(value) {
+  if (!Number.isFinite(value)) return "neutral";
+  if (value > 0.005) return "positive";
+  if (value < -0.005) return "negative";
+  return "neutral";
+}
+
+function formatUsd(value, decimals = 2) {
+  if (!Number.isFinite(value)) return "--";
+  const fractionDigits = value >= 1000 ? 0 : decimals;
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: fractionDigits,
+    maximumFractionDigits: fractionDigits,
+  }).format(value);
+}
+
+function formatKrw(value) {
+  if (!Number.isFinite(value)) return "--";
+  return new Intl.NumberFormat("ko-KR", {
+    maximumFractionDigits: value >= 100 ? 0 : 2,
+  }).format(value);
+}
+
+function formatKrwPrice(value, forcedDecimals = null) {
+  if (!Number.isFinite(value)) return "--";
+  const fractionDigits = Number.isFinite(forcedDecimals) ? forcedDecimals : value >= 100 ? 0 : 2;
+  return new Intl.NumberFormat("ko-KR", {
+    style: "currency",
+    currency: "KRW",
+    minimumFractionDigits: fractionDigits,
+    maximumFractionDigits: fractionDigits,
+  }).format(value);
+}
+
+function formatKrwRate(value) {
+  if (!Number.isFinite(value)) return "--";
+  return new Intl.NumberFormat("ko-KR", {
+    style: "currency",
+    currency: "KRW",
+    maximumFractionDigits: 2,
+  }).format(value);
+}
+
+function formatIndex(value) {
+  if (!Number.isFinite(value)) return "--";
+  return new Intl.NumberFormat("ko-KR", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(value);
+}
+
+function formatPercent(value) {
+  if (!Number.isFinite(value)) return "--";
+  const sign = value > 0 ? "+" : "";
+  return `${sign}${value.toFixed(2)}%`;
+}
+
+function formatMoneyMillions(value) {
+  if (!Number.isFinite(value)) return "--";
+  const sign = value > 0 ? "+" : value < 0 ? "-" : "";
+  return `${sign}$${Math.abs(value).toLocaleString("en-US", { maximumFractionDigits: 1 })}M`;
+}
+
+function formatDate(time) {
+  if (!time) return "--";
+  return new Intl.DateTimeFormat("ko-KR", {
+    timeZone: "Asia/Seoul",
+    month: "short",
+    day: "numeric",
+  }).format(new Date(time));
+}
+
+function formatDateTime(time) {
+  if (!time) return "--";
+  return new Intl.DateTimeFormat("ko-KR", {
+    timeZone: "Asia/Seoul",
+    month: "short",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  }).format(new Date(time));
+}
+
+function formatTime(time) {
+  if (!time) return "--";
+  return new Intl.DateTimeFormat("ko-KR", {
+    timeZone: "Asia/Seoul",
+    hour: "2-digit",
+    minute: "2-digit",
+  }).format(new Date(time));
+}
+
+function timeAgo(time) {
+  if (!time) return "--";
+  const seconds = Math.max(0, Math.round((Date.now() - time) / 1000));
+  if (seconds < 60) return `${seconds}초 전`;
+  const minutes = Math.round(seconds / 60);
+  if (minutes < 60) return `${minutes}분 전`;
+  const hours = Math.round(minutes / 60);
+  return `${hours}시간 전`;
+}
+
+function translateFearGreed(label) {
+  const map = {
+    "Extreme Fear": "극단적 공포",
+    Fear: "공포",
+    Neutral: "중립",
+    Greed: "탐욕",
+    "Extreme Greed": "극단적 탐욕",
+  };
+  return map[label] ?? label ?? "--";
+}
+
+function classifyRsi(value) {
+  if (value >= 70) return "과열";
+  if (value <= 30) return "침체";
+  return "중립";
+}
+
+function shortError(error) {
+  if (error?.name === "AbortError") return "시간 초과";
+  return String(error?.message || error || "오류").slice(0, 48);
+}
+
+if (document.readyState === "loading") {
+  window.addEventListener("DOMContentLoaded", init, { once: true });
+} else {
+  init();
+}
+
+})();
+</script>
