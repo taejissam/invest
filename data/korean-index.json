@@ -1,18 +1,18 @@
 {
-  "updatedAt": 1784705183381,
+  "updatedAt": 1784714169566,
   "indices": {
     "kosdaq": {
       "price": 751.09,
       "previous": 753.34,
       "changePct": -0.3,
-      "updatedAt": 1784705100000,
+      "updatedAt": 1784714100000,
       "points": [
         {
-          "time": 1784618700000,
+          "time": 1784627700000,
           "value": 753.34
         },
         {
-          "time": 1784705100000,
+          "time": 1784714100000,
           "value": 751.09
         }
       ],
@@ -25,14 +25,14 @@
       "price": 6797.7,
       "previous": 6747.95,
       "changePct": 0.74,
-      "updatedAt": 1784705160000,
+      "updatedAt": 1784714160000,
       "points": [
         {
-          "time": 1784618760000,
+          "time": 1784627760000,
           "value": 6747.95
         },
         {
-          "time": 1784705160000,
+          "time": 1784714160000,
           "value": 6797.7
         }
       ],
