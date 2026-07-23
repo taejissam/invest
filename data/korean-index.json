@@ -1,19 +1,19 @@
 {
-  "updatedAt": 1784771779259,
+  "updatedAt": 1784784000530,
   "indices": {
     "kosdaq": {
-      "price": 770.28,
+      "price": 776.03,
       "previous": 751.0899999999999,
-      "changePct": 2.55,
-      "updatedAt": 1784771700000,
+      "changePct": 3.32,
+      "updatedAt": 1784783940000,
       "points": [
         {
-          "time": 1784685300000,
+          "time": 1784697540000,
           "value": 751.0899999999999
         },
         {
-          "time": 1784771700000,
-          "value": 770.28
+          "time": 1784783940000,
+          "value": 776.03
         }
       ],
       "mode": "naver",
@@ -22,18 +22,18 @@
       "official": true
     },
     "kospi": {
-      "price": 7009.44,
+      "price": 7020.09,
       "previous": 6797.7,
-      "changePct": 3.11,
-      "updatedAt": 1784771700000,
+      "changePct": 3.27,
+      "updatedAt": 1784783940000,
       "points": [
         {
-          "time": 1784685300000,
+          "time": 1784697540000,
           "value": 6797.7
         },
         {
-          "time": 1784771700000,
-          "value": 7009.44
+          "time": 1784783940000,
+          "value": 7020.09
         }
       ],
       "mode": "naver",
